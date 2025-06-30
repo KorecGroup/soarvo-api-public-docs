@@ -1,0 +1,457 @@
+{
+	"info": {
+		"_postman_id": "28681037-4554-4722-af6a-946f2df4eda8",
+		"name": "Soarvo API Walkthrough",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12395455",
+		"_collection_link": "https://red-crater-376891.postman.co/workspace/9bb3b9e4-fb22-4e38-b8d4-a855ecc005d1/collection/12395455-28681037-4554-4722-af6a-946f2df4eda8?action=share&source=collection_link&creator=12395455"
+	},
+	"item": [
+		{
+			"name": "Get Projects",
+			"protocolProfileBehavior": {
+				"protocolVersion": "http2"
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARER_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					}
+				],
+				"url": {
+					"raw": "https://api.live.soarvo.com/projects/current-user/projects?sort-by-property=Name&sort-by-direction=Asc&offset=0&limit=20",
+					"protocol": "https",
+					"host": [
+						"api",
+						"live",
+						"soarvo",
+						"com"
+					],
+					"path": [
+						"projects",
+						"current-user",
+						"projects"
+					],
+					"query": [
+						{
+							"key": "sort-by-property",
+							"value": "Name"
+						},
+						{
+							"key": "sort-by-direction",
+							"value": "Asc"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Project",
+			"protocolProfileBehavior": {
+				"protocolVersion": "http2"
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARER_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"testforapi3\",\"measurement_system\":\"Metric\",\"coordinate_system\":3857,\"project_category_id\":\"Drone\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.live.soarvo.com/projects",
+					"protocol": "https",
+					"host": [
+						"api",
+						"live",
+						"soarvo",
+						"com"
+					],
+					"path": [
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Locations",
+			"protocolProfileBehavior": {
+				"protocolVersion": "http2"
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARER_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					}
+				],
+				"url": {
+					"raw": "https://api.live.soarvo.com/projects/current-user/locations?sort-by-property=Name&sort-by-direction=Asc&offset=0&limit=20",
+					"protocol": "https",
+					"host": [
+						"api",
+						"live",
+						"soarvo",
+						"com"
+					],
+					"path": [
+						"projects",
+						"current-user",
+						"locations"
+					],
+					"query": [
+						{
+							"key": "sort-by-property",
+							"value": "Name"
+						},
+						{
+							"key": "sort-by-direction",
+							"value": "Asc"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Location",
+			"protocolProfileBehavior": {
+				"protocolVersion": "http2"
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARER_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"testapilocation2\",\"anchor_point\":{\"type\":\"Point\",\"coordinates\":[53.43655,-2.97182]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.live.soarvo.com/projects/projects/27457463-5a4e-47f8-bbeb-4a83413e4ed9/locations",
+					"protocol": "https",
+					"host": [
+						"api",
+						"live",
+						"soarvo",
+						"com"
+					],
+					"path": [
+						"projects",
+						"projects",
+						"27457463-5a4e-47f8-bbeb-4a83413e4ed9",
+						"locations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Location",
+			"protocolProfileBehavior": {
+				"protocolVersion": "http2"
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARER_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.live.soarvo.com/projects/projects/27457463-5a4e-47f8-bbeb-4a83413e4ed9/locations/6573b1e7-fa6a-4372-bfab-7406e043b6ae",
+					"protocol": "https",
+					"host": [
+						"api",
+						"live",
+						"soarvo",
+						"com"
+					],
+					"path": [
+						"projects",
+						"projects",
+						"27457463-5a4e-47f8-bbeb-4a83413e4ed9",
+						"locations",
+						"6573b1e7-fa6a-4372-bfab-7406e043b6ae"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Feature Types for Project",
+			"protocolProfileBehavior": {
+				"protocolVersion": "http2"
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARER_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					}
+				],
+				"url": {
+					"raw": "https://api.live.soarvo.com/feature-service/projects/27457463-5a4e-47f8-bbeb-4a83413e4ed9/feature-types?sort-by-property=Name&sort-by-direction=Asc",
+					"protocol": "https",
+					"host": [
+						"api",
+						"live",
+						"soarvo",
+						"com"
+					],
+					"path": [
+						"feature-service",
+						"projects",
+						"27457463-5a4e-47f8-bbeb-4a83413e4ed9",
+						"feature-types"
+					],
+					"query": [
+						{
+							"key": "sort-by-property",
+							"value": "Name"
+						},
+						{
+							"key": "sort-by-direction",
+							"value": "Asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Features for a Location",
+			"protocolProfileBehavior": {
+				"protocolVersion": "http2"
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARER_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					}
+				],
+				"url": {
+					"raw": "https://api.live.soarvo.com/feature-service/projects/27457463-5a4e-47f8-bbeb-4a83413e4ed9/locations/434b0047-80f9-42db-9d58-c1d5086e6a7f/legacy-mobile-app-data/get-features-json-bylocation",
+					"protocol": "https",
+					"host": [
+						"api",
+						"live",
+						"soarvo",
+						"com"
+					],
+					"path": [
+						"feature-service",
+						"projects",
+						"27457463-5a4e-47f8-bbeb-4a83413e4ed9",
+						"locations",
+						"434b0047-80f9-42db-9d58-c1d5086e6a7f",
+						"legacy-mobile-app-data",
+						"get-features-json-bylocation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upsert a Feature",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"connection": true,
+					"content-length": true,
+					"accept": true
+				},
+				"protocolVersion": "http2"
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARER_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"feature_type_name\":\"testfeaturetype\",\n    \"geometry\":{\"type\":\"Point\",\"coordinates\":[-2.9948647,53.4038483,60.599998474121094]},\n    \"custom_attributes\":{\n        \"_accuracy\":\"123.140\",\n        \"testattribute\":\"ggg\",\n        \"_fieldUser\":\"soarvotest\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.live.soarvo.com/feature-service/projects/27457463-5a4e-47f8-bbeb-4a83413e4ed9/locations/434b0047-80f9-42db-9d58-c1d5086e6a7f/legacy-mobile-app-data/features/fa2166c7-fd25-401c-affb-e912c1791cb8",
+					"protocol": "https",
+					"host": [
+						"api",
+						"live",
+						"soarvo",
+						"com"
+					],
+					"path": [
+						"feature-service",
+						"projects",
+						"27457463-5a4e-47f8-bbeb-4a83413e4ed9",
+						"locations",
+						"434b0047-80f9-42db-9d58-c1d5086e6a7f",
+						"legacy-mobile-app-data",
+						"features",
+						"fa2166c7-fd25-401c-affb-e912c1791cb8"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
